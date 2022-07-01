@@ -12,7 +12,7 @@ export const cartSlice = createSlice({
 			state.books.push(action.payload)
 		},
 		removeBook: (state) => {
-			// state.bookCounter -= 1;
+			state.books.pop();
 		}
 	}
 });
