@@ -10,6 +10,7 @@ export const cartSlice = createSlice({
 	initialState,
 	reducers: {
 		addBook: (state, action) => {
+			action.payload.discountedPrice = action.payload.price;
 			state.books.push(action.payload)
 		},
 		removeBook: (state) => {
