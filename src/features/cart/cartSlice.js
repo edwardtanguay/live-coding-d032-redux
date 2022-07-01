@@ -14,6 +14,9 @@ export const cartSlice = createSlice({
 		},
 		removeBook: (state) => {
 			state.books.pop();
+		}, 
+		changeCustomerName: (state, action) => {
+			state.customerName = action.payload;
 		}
 	}
 });
