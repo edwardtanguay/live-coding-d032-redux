@@ -13,16 +13,18 @@ function App() {
 	const dispatch = useDispatch();
 
 	useEffect(() => {
-		(async () => {
-			const _books = (await axios.get(url)).data;
-			_books.forEach((book) => {
-				const randomPrice = Math.floor(Math.random() * 20) + 20;
-				dispatch({
-					type: 'cart/addBook',
-					payload: { title: book.title, price: randomPrice },
+		setTimeout(() => {
+			(async () => {
+				const _books = (await axios.get(url)).data;
+				_books.forEach((book) => {
+					const randomPrice = Math.floor(Math.random() * 20) + 20;
+					dispatch({
+						type: 'cart/addBook',
+						payload: { title: book.title, price: randomPrice },
+					});
 				});
-			});
-		})();
+			})();
+		}, 4000);
 	}, []);
 
 	return (

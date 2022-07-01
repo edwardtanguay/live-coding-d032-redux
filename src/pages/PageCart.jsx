@@ -16,26 +16,36 @@ export const PageCart = () => {
 	return (
 		<div className="page_cart">
 			<h2>Cart</h2>
-			<p>There are {books.length} books.</p>
 
-			{couponAdded ? (
-				<p>*** Coupon Added! ***</p>
+			{books.length === 0 ? (
+				<p>
+					Your books from your last shopping experience are loading...
+				</p>
 			) : (
-				<button onClick={() => dispatch(addCoupon())}>
-					Add Coupon
-				</button>
-			)}
+				<>
+					<p>There are {books.length} books.</p>
 
-			<ul>
-				{books.map((book, i) => {
-					return (
-						<li key={i}>
-							{book.title} - {formatPrice(book.price)} (discounted:{' '}
-							{formatPrice(book.discountedPrice)})
-						</li>
-					);
-				})}
-			</ul>
+					{couponAdded ? (
+						<p>*** Coupon Added! ***</p>
+					) : (
+						<button onClick={() => dispatch(addCoupon())}>
+							Add Coupon
+						</button>
+					)}
+
+					<ul>
+						{books.map((book, i) => {
+							return (
+								<li key={i}>
+									{book.title} - {formatPrice(book.price)}{' '}
+									(discounted:{' '}
+									{formatPrice(book.discountedPrice)})
+								</li>
+							);
+						})}
+					</ul>
+				</>
+			)}
 		</div>
 	);
 };
