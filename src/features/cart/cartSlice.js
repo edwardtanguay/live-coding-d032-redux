@@ -1,18 +1,18 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-	bookCounter: 0
+	books: []
 };
 
 export const cartSlice = createSlice({
 	name: 'cart',
 	initialState,
 	reducers: {
-		addBook: (state) => {
-			state.bookCounter += 1;
+		addBook: (state, action) => {
+			state.books.push(action.payload)
 		},
 		removeBook: (state) => {
-			state.bookCounter -= 1;
+			// state.bookCounter -= 1;
 		}
 	}
 });

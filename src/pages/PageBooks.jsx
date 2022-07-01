@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import { addBook, removeBook } from "../features/cart/cartSlice";
+import { removeBook } from "../features/cart/cartSlice";
 
 export const PageBooks = () => {
 	const dispatch = useDispatch();
@@ -7,7 +7,7 @@ export const PageBooks = () => {
 	return (
 		<div className="page_books">
 			<h2>Books</h2>
-			<button onClick={() => dispatch(addBook())}>Add book</button>
+			<button onClick={() => dispatch({type: 'cart/addBook', payload: { title: "React 18 The Good Parts", price: 29.99} })}>React 18 The Good Parts</button>
 			<button onClick={()=> dispatch(removeBook())}>Remove book</button>
 		</div>
 	)
