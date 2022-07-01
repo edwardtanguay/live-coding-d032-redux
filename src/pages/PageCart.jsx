@@ -6,6 +6,13 @@ export const PageCart = () => {
 	const { books, couponAdded } = useSelector((state) => state.cart);
 	const dispatch = useDispatch();
 
+	const formatPrice = (price) => {
+		return new Intl.NumberFormat('de-DE', {
+			style: 'currency',
+			currency: 'EUR',
+		}).format(price);
+	};
+
 	return (
 		<div className="page_cart">
 			<h2>Cart</h2>
@@ -14,15 +21,17 @@ export const PageCart = () => {
 			{couponAdded ? (
 				<p>*** Coupon Added! ***</p>
 			) : (
-				<button onClick={() => dispatch(addCoupon())}>Add Coupon</button>
+				<button onClick={() => dispatch(addCoupon())}>
+					Add Coupon
+				</button>
 			)}
 
 			<ul>
 				{books.map((book, i) => {
 					return (
 						<li key={i}>
-							{book.title} - {book.price} (discounted:{' '}
-							{book.discountedPrice})
+							{book.title} - {formatPrice(book.price)} (discounted:{' '}
+							{formatPrice(book.discountedPrice)})
 						</li>
 					);
 				})}
