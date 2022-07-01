@@ -21,7 +21,7 @@ export const cartSlice = createSlice({
 			state.customerName = action.payload;
 		},
 		addCoupon: (state) => {
-			// state.couponAdded = true;
+			state.couponAdded = true;
 		}
 	}
 });

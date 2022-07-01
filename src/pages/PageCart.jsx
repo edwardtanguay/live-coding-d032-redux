@@ -14,7 +14,7 @@ export const PageCart = () => {
 			{couponAdded ? (
 				<p>*** Coupon Added! ***</p>
 			) : (
-				<button onClick={dispatch(addCoupon())}>Add Coupon</button>
+				<button onClick={() => dispatch(addCoupon())}>Add Coupon</button>
 			)}
 
 			<ul>
