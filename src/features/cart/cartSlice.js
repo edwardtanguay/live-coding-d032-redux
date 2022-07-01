@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
 	books: [],
-	customerName: ''
+	customerName: '',
+	couponAdded: false
 };
 
 export const cartSlice = createSlice({
@@ -18,9 +19,12 @@ export const cartSlice = createSlice({
 		}, 
 		changeCustomerName: (state, action) => {
 			state.customerName = action.payload;
+		},
+		addCoupon: (state) => {
+			// state.couponAdded = true;
 		}
 	}
 });
 
-export const { addBook, removeBook } = cartSlice.actions;
+export const { addBook, removeBook, addCoupon } = cartSlice.actions;
 export default cartSlice.reducer;
